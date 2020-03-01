@@ -110,41 +110,40 @@
 				<div class="form-group">
 					<div class="col-md-12">
 						<label>
-							Title<br>
-							<small class="text-muted">This is the title shown on the navigation bar</small>
+							Título<br>
+							<small class="text-muted">Este é o título mostrado na barra de navegação</small>
 						</label>
 						<input class="form-control radius" id="route" type="text" name="title"
-							   value="{% if page is defined %}{{ page.title }}{% endif %}" placeholder="Title">
+							   value="{% if page is defined %}{{ page.title }}{% endif %}" placeholder="Título">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-md-12">
 						<label>
-							Route<br>
+							Rota<br>
 							<small class="text-muted">
-								This is the URL route that your page will be at (e.g. /page). You can
-								also enter links to link to that page.
+								Esta é a rota da URL em que sua página estará (por exemplo, / page). Você também pode inserir links para vincular a essa página.
 							</small>
 						</label>
 						<input class="form-control radius" id="route" type="text" name="route"
-							   value="{% if page is defined %}{{ page.route }}{% endif %}" placeholder="Route">
+							   value="{% if page is defined %}{{ page.route }}{% endif %}" placeholder="Rota">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-md-12">
 
-						<h3>Content</h3>
-						<small class="text-muted">This is the HTML content of your page</small>
+						<h3>Conteúdo</h3>
+						<small class="text-muted">Este é o conteúdo HTML da sua página</small>
 
 						<ul class="nav nav-tabs" role="tablist" id="content-edit">
 							<li class="nav-item" role="presentation" class="active">
 								<a class="nav-link active" href="#content-write" aria-controls="home" role="tab"
-								   data-toggle="tab">Write</a>
+								   data-toggle="tab">Escrever</a>
 							</li>
 							<li class="nav-item" role="presentation">
-								<a class="nav-link preview-page" href="#">Preview</a>
+								<a class="nav-link preview-page" href="#">Pré-visualização</a>
 							</li>
 						</ul>
 
@@ -157,7 +156,7 @@
 										<div class="btn-group">
 											<button type="button" class="btn btn-primary" id="media-button">
 												<i class="fas fa-camera-retro"></i>
-												Media Library
+												Biblioteca de mídia
 											</button>
 										</div>
 									</div>
@@ -165,38 +164,38 @@
 									<span class="nav-link d-none d-md-block d-lg-block">|</span>
 
 									<div class="form-group pr-3">
-										Draft:
+										Esboço:
 										{% set draft = page is defined and page.draft == True %}
 										<select class="form-control custom-select" name="draft">
 											<option value="true" {% if draft == True %}selected{% endif %}>
-												True
+												Sim
 											</option>
 											<option value="false" {% if draft == False %}selected{% endif %}>
-												False
+												Não
 											</option>
 										</select>
 									</div>
 
 									<div class="form-group pr-3">
-										Hidden:
+										Visível:
 										{% set hidden = page is defined and page.hidden == True %}
 										<select class="form-control custom-select" name="hidden">
-											<option value="true" {% if hidden == True %}selected{% endif %}>True
+											<option value="true" {% if hidden == True %}selected{% endif %}>Sim
 											</option>
-											<option value="false" {% if hidden == False %}selected{% endif %}>False
+											<option value="false" {% if hidden == False %}selected{% endif %}>Não
 											</option>
 										</select>
 									</div>
 
 									<div class="form-group pr-3">
-										Authentication Required:
+										Autenticação Necessária:
 										{% set auth_required = page is defined and page.auth_required == True %}
 										<select class="form-control custom-select" name="auth_required">
 											<option value="true" {% if auth_required == True %}selected{% endif %}>
-												True
+												Sim
 											</option>
 											<option value="false" {% if auth_required == False %}selected{% endif %}>
-												False
+												Não
 											</option>
 										</select>
 									</div>

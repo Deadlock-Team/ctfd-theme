@@ -6,9 +6,9 @@
 {% block content %}
 <div class="jumbotron">
 	<div class="container">
-		<h1>Pages
+		<h1>Paginas
 			<a class="no-decoration" href="{{ url_for('admin.pages_new') }}">
-				<span class="create-page" role="button" data-toggle="tooltip" title="Create Page">
+				<span class="create-page" role="button" data-toggle="tooltip" title="Criar Pagina">
 					<i class="btn-fa fas fa-plus-circle"></i>
 				</span>
 			</a>
@@ -22,12 +22,12 @@
 			<table id="pages" class="table table-striped">
 				<thead>
 				<tr>
-					<td><b>Title</b></td>
-					<td><b>Route</b></td>
-					<td class="text-center"><b>Authentication</b></td>
-					<td class="text-center"><b>Hidden</b></td>
-					<td class="text-center"><b>Published</b></td>
-					<td class="text-center" width="10px"><b>Settings</b></td>
+					<td><b>Titulo</b></td>
+					<td><b>Rota</b></td>
+					<td class="text-center"><b>Autenticação Necessária</b></td>
+					<td class="text-center"><b>Visível</b></td>
+					<td class="text-center"><b>Publicado</b></td>
+					<td class="text-center" width="10px"><b>Configurações</b></td>
 				</tr>
 				</thead>
 				<tbody>
@@ -43,21 +43,23 @@
 						</td>
 						<td class="text-center">
 							{% if page.auth_required %}
-							Required
+								Sim
 							{% else %}
+								Não
 							{% endif %}
 						</td>
 						<td class="text-center">
 							{% if page.hidden %}
-								Hidden
+								Não
 							{% else %}
+								Sim
 							{% endif %}
 						</td>
 						<td class="text-center">
 							{% if page.draft %}
-								Draft
+								Não
 							{% else %}
-								Published
+								Sim
 							{% endif %}
 						</td>
 						<td class="text-center">

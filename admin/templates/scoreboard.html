@@ -3,7 +3,7 @@
 {% block content %}
 <div class="jumbotron">
 	<div class="container">
-		<h1>Scoreboard</h1>
+		<h1>Placar</h1>
 	</div>
 </div>
 <div class="container">
@@ -12,10 +12,10 @@
 			<table id="scoreboard" class="table table-striped">
 				<thead>
 					<tr>
-						<td width="10px"><b>Place</b></td>
-						<td><b>Team</b></td>
-						<td><b>Score</b></td>
-						<td><b>Visibility</b></td>
+						<td width="10px"><b>Colocação</b></td>
+						<td><b>Time</b></td>
+						<td><b>Pontos</b></td>
+						<td><b>Visibilidade</b></td>
 					</tr>
 				</thead>
 				<tbody>
@@ -28,11 +28,11 @@
 								{% if standing.oauth_id %}
 									{% if get_config('user_mode') == 'teams' %}
 										<a href="https://majorleaguecyber.org/t/{{ standing.name }}">
-											<span class="badge badge-primary">Official</span>
+											<span class="badge badge-primary">Oficial</span>
 										</a>
 									{% elif get_config('user_mode') == 'users' %}
 										<a href="https://majorleaguecyber.org/u/{{ standing.name }}">
-											<span class="badge badge-primary">Official</span>
+											<span class="badge badge-primary">Oficial</span>
 										</a>
 									{% endif %}
 								{% endif %}
@@ -42,11 +42,11 @@
 						<td>
 						{% if standing.hidden %}
 							<button class="btn-sm btn-danger cursor-pointer scoreboard-toggle" type="submit"
-								data-account-id="{{ standing.account_id }}" data-state="hidden">Hidden
+								data-account-id="{{ standing.account_id }}" data-state="hidden">Escondido
 							</button>
 						{% else %}
 							<button class="btn-sm btn-success cursor-pointer scoreboard-toggle" type="submit"
-								data-account-id="{{ standing.account_id }}" data-state="visible">Visible
+								data-account-id="{{ standing.account_id }}" data-state="visible">Visível
 							</button>
 						{% endif %}
 						</td>

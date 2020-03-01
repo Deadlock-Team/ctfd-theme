@@ -6,8 +6,8 @@
 {% block content %}
 <div class="jumbotron">
 	<div class="container">
-		<h1>Users
-			<span class="create-team" role="button" data-toggle="tooltip" title="Create User">
+		<h1>Usuários
+			<span class="create-team" role="button" data-toggle="tooltip" title="Criar Usuário">
 				<a href="{{ url_for('admin.users_new') }}" style="color: inherit;">
 					<i class="btn-fa fas fa-plus-circle"></i>
 				</a>
@@ -20,26 +20,26 @@
 	<div class="row">
 		<div class="col-md-12">
 			{% if q and field %}
-			<h4 class="text-center">Searching for users with {{field}} matching {{q}}</h4>
+			<h4 class="text-center">Procurando usuários com o {{field}} correspondente a {{q}}</h4>
 			{% endif %}
 
 			<form method="GET" class="form-inline">
 					<div class="form-group col-md-2">
-						<label for="sel1" class="sr-only" >Search Field</label>
+						<label for="sel1" class="sr-only" >Buscar pela Coluna</label>
 						<select class="form-control custom-select w-100" id="sel1" name="field">
-							<option value="name" {% if field == 'name' %}selected{% endif %}>Name</option>
+							<option value="name" {% if field == 'name' %}selected{% endif %}>Nome</option>
 							<option value="id" {% if field == 'id' %}selected{% endif %}>ID</option>
 							<option value="email" {% if field == 'email' %}selected{% endif %}>Email</option>
-							<option value="affiliation" {% if field == 'affiliation' %}selected{% endif %}>Affiliation</option>
-							<option value="ip" {% if field == 'ip' %}selected{% endif %}>IP Address</option>
+							<option value="affiliation" {% if field == 'affiliation' %}selected{% endif %}>Afiliação</option>
+							<option value="ip" {% if field == 'ip' %}selected{% endif %}>IP</option>
 					  </select>
 					</div>
 					<div class="form-group col-md-8">
-						<label for="team-name-search" class="sr-only">Parameter</label>
-						<input type="text" class="form-control w-100" id="team-name-search" name="q" placeholder="Search for matching user" {% if q %}value="{{q}}"{% endif %}>
+						<label for="team-name-search" class="sr-only">Parametro</label>
+						<input type="text" class="form-control w-100" id="team-name-search" name="q" placeholder="Procurar usuário correspondente" {% if q %}value="{{q}}"{% endif %}>
 					</div>
 					<div class="form-group col-md-2">
-						<label for="team-name-search" class="sr-only">Search</label>
+						<label for="team-name-search" class="sr-only">Buscar</label>
 						<button type="submit" class="btn btn-primary w-100"><i class="fas fa-search" aria-hidden="true"></i></button>
 					</div>
 			</form>
@@ -51,21 +51,21 @@
 					<tr>
 						<td width="10px" class="text-center"><b>ID</b>
 						</td>
-						<td class="text-center"><b>User</b>
+						<td class="text-center"><b>Usuário</b>
 						</td>
 						<td class="d-md-table-cell d-lg-table-cell text-center"><b>Email</b>
 						</td>
 						<td class=""><b>Website</b>
 						</td>
-						<td class=""><b>Country</b>
+						<td class=""><b>Páis</b>
 						</td>
 						<td class="text-center"><b>Admin</b>
 						</td>
-						<td class="text-center"><b>Verified</b>
+						<td class="text-center"><b>Verificado</b>
 						</td>
-						<td class="text-center"><b>Hidden</b>
+						<td class="text-center"><b>Visível</b>
 						</td>
-						<td class="text-center"><b>Banned</b>
+						<td class="text-center"><b>Banido</b>
 						</td>
 					</tr>
 				</thead>
@@ -79,7 +79,7 @@
 							</a>
 							{% if user.oauth_id %}
 								<a href="https://majorleaguecyber.org/u/{{ user.name }}">
-									<span class="badge badge-primary">Official</span>
+									<span class="badge badge-primary">Oficial</span>
 								</a>
 							{% endif %}
 							{% if user.affiliation %}
@@ -114,17 +114,17 @@
 						</td>
 						<td class="team-verified d-md-table-cell d-lg-table-cell text-center" value="{{ user.verified }}">
 							{% if user.verified %}
-								<span class="badge badge-success">verified</span>
+								<span class="badge badge-success">Verificado</span>
 							{% endif %}
 						</td>
 						<td class="team-hidden d-md-table-cell d-lg-table-cell text-center" value="{{ user.hidden }}">
 							{% if user.hidden %}
-								<span class="badge badge-danger">hidden</span>
+								<span class="badge badge-danger">Não</span>
 							{% endif %}
 						</td>
 						<td class="team-banned d-md-table-cell d-lg-table-cell text-center" value="{{ user.banned }}">
 							{% if user.banned %}
-								<span class="badge badge-danger">banned</span>
+								<span class="badge badge-danger">Sim</span>
 							{% endif %}
 						</td>
 					</tr>
@@ -132,7 +132,7 @@
 				</tbody>
 			</table>
 			{% if pages > 1 %}
-			<div class="text-center">Page
+			<div class="text-center">Pagina
 				<br>
 				{% if curr_page != 1 %}<a href="{{ url_for('admin.users_listing', page=curr_page - 1) }}">&lt;&lt;&lt;</a>{% endif %}
 				{% for page in range(1, pages + 1) %}
