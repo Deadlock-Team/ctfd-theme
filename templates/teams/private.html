@@ -8,7 +8,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h2 class="modal-action text-center w-100">Edit Team</h2>
+					<h2 class="modal-action text-center w-100">Editar Time</h2>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -16,17 +16,17 @@
 				<div class="modal-body clearfix">
 					<form id="team-info-form" method="POST">
 						<div class="form-group">
-							<label for="name">Team Name</label>
+							<label for="name">Nome do Time</label>
 							<input type="text" class="form-control" name="name" id="name"
 								   {% if team is defined and team.name %}value="{{ team.name }}"{% endif %} required />
 						</div>
 						<div class="form-group">
-							<label for="password">Current Password</label>
-							<input type="password" class="form-control" name="confirm" id="confirm"/>
+							<label for="password">Senha</label>
+							<input type="password" class="form-control" name="password" id="password"/>
 						</div>
 						<div class="form-group">
-							<label for="password">Password</label>
-							<input type="password" class="form-control" name="password" id="password"/>
+							<label for="password">Confirmar Senha</label>
+							<input type="password" class="form-control" name="confirm" id="confirm"/>
 						</div>
 						<div class="form-group">
 							<label for="website">Website</label>
@@ -34,12 +34,12 @@
 								   {% if team is defined and team.website %}value="{{ team.website }}"{% endif %} />
 						</div>
 						<div class="form-group">
-							<label for="affiliation">Affiliation</label>
+							<label for="affiliation">Afiliação</label>
 							<input type="text" class="form-control" name="affiliation" id="affiliation"
 								   {% if team is defined and team.affiliation %}value="{{ team.affiliation }}"{% endif %} />
 						</div>
 						<div class="form-group">
-							<label for="affiliation">Country</label>
+							<label for="affiliation">País</label>
 							<select class="form-control custom-select" id="country-input" name="country">
 								<option></option>
 								{% set countries = get_countries() %}
@@ -53,9 +53,8 @@
 						<div id="results">
 
 						</div>
-						<button id="update-team" type="submit"
-								class="btn btn-primary btn-outlined float-right modal-action">
-							Submit
+						<button id="update-team" type="submit" class="btn btn-primary btn-outlined float-right modal-action">
+							Enviar
 						</button>
 					</form>
 				</div>
@@ -67,7 +66,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h2 class="modal-action text-center w-100">Choose Captain</h2>
+					<h2 class="modal-action text-center w-100">Escolher Capitão</h2>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -76,7 +75,7 @@
 					<form id="team-captain-form" method="POST">
 						<input type="hidden" name="id">
 						<div class="form-group">
-							<label for="captain">Team Captain</label>
+							<label for="captain">Capitão do Time</label>
 							<select class="form-control custom-select" id="captain" name="captain_id">
 								{% if team is defined %}
 									<option value="{{ team.captain.id }}">{{ team.captain.name }}</option>
@@ -92,7 +91,7 @@
 
 						</div>
 						<button type="submit" class="btn btn-primary btn-outlined float-right modal-action">
-							Submit
+							Enviar
 						</button>
 					</form>
 				</div>
@@ -105,7 +104,7 @@
 			<h1 id="team-id" team-id="{{ team.id }}">{{ team.name }}</h1>
 			{% if team.oauth_id %}
 				<a href="https://majorleaguecyber.org/t/{{ team.name }}">
-					<h3><span class="badge badge-primary">Official</span></h3>
+					<h3><span class="badge badge-primary">Oficial</span></h3>
 				</a>
 			{% endif %}
 			{% if team.affiliation %}
@@ -183,7 +182,7 @@
 
 			{% if score_frozen %}
 				<div class="row">
-					<h1 class="text-center">Scoreboard has been frozen.</h1>
+					<h1 class="text-center">O placar foi congelado.</h1>
 				</div>
 			{% endif %}
 
@@ -191,12 +190,12 @@
 
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Members</h3>
+					<h3>Menbros</h3>
 					<table class="table table-striped">
 						<thead>
 						<tr>
-							<td><b>User Name</b></td>
-							<td><b>Score</b></td>
+							<td><b>Nome de Usuário</b></td>
+							<td><b>Pontos</b></td>
 						</tr>
 						</thead>
 						<tbody>
@@ -207,7 +206,7 @@
 										{{ member.name }}
 									</a>
 									{% if team.captain_id == member.id %}
-										<span class="badge badge-primary ml-2">Captain</span>
+										<span class="badge badge-primary ml-2">Capitão</span>
 									{% endif %}
 								</td>
 								<td>{{ member.score }}</td>
@@ -262,13 +261,13 @@
 
 				<div class="row">
 					<div class="col-md-12">
-						<h3>Solves</h3>
+						<h3>Resolvidos</h3>
 						<table class="table table-striped">
 							<thead>
 							<tr>
-								<td><b>Challenge</b></td>
-								<td class="d-none d-md-block d-lg-block"><b>Category</b></td>
-								<td><b>Value</b></td>
+								<td><b>Desafio</b></td>
+								<td class="d-none d-md-block d-lg-block"><b>Categoria</b></td>
+								<td><b>Valor</b></td>
 								<td><b>Time</b></td>
 							</tr>
 							</thead>
@@ -290,7 +289,7 @@
 					</div>
 				</div>
 			{% else %}
-				<div class="text-center"><h3 class="spinner-error">No solves yet</h3></div>
+				<div class="text-center"><h3 class="spinner-error">Sem resoluções</h3></div>
 			{% endif %}
 		{% endif %}
 	</div>

@@ -51,7 +51,7 @@
 					</h2>
 					<h2 id="user-team-score" class="text-center">
 						{{ user.team.score }}
-						<small>points</small>
+						<small>pontos</small>
 					</h2>
 				</div>
 			{% else %}
@@ -67,7 +67,7 @@
 					<h2 id="user-score" class="text-center">
 						{% if user.score %}
 							{{ user.score }}
-							<small>points</small>
+							<small>pontos</small>
 						{% endif %}
 					</h2>
 				</div>
@@ -147,13 +147,13 @@
 
 				<div class="row">
 					<div class="col-md-12">
-						<h3>Solves</h3>
+						<h3>Resolvidos</h3>
 						<table class="table table-striped">
 							<thead>
 							<tr>
-								<td><b>Challenge</b></td>
-								<td class="d-none d-md-block d-lg-block"><b>Category</b></td>
-								<td><b>Value</b></td>
+								<td><b>Desafio</b></td>
+								<td class="d-none d-md-block d-lg-block"><b>Categoria</b></td>
+								<td><b>Valor</b></td>
 								<td><b>Time</b></td>
 							</tr>
 							</thead>
@@ -175,7 +175,7 @@
 					</div>
 				</div>
 			{% else %}
-				<div class="text-center"><h3 class="spinner-error">No solves yet</h3></div>
+				<div class="text-center"><h3 class="spinner-error">Sem resoluções</h3></div>
 			{% endif %}
 		{% endif %}
 	</div>
