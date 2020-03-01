@@ -45,11 +45,11 @@
 						{# This intentionally hides the user's place because this can be their internal profile. #}
 						{# Public page hiding is done at the route level #}
 						{% if scores_visible() and user.team.place %}
-							{{ user.team.place }} <small>place</small>
+							{{ user.team.place }} <small>Colocação</small>
 						{% endif %}
 					</h2>
 					<h2 id="user-team-score" class="text-center">
-						{{ user.team.score }} <small>points</small>
+						{{ user.team.score }} <small>Pontos</small>
 					</h2>
 				</div>
 			{% else %}
@@ -58,13 +58,13 @@
 						{# This intentionally hides the user's place because this can be their internal profile. #}
 						{# Public page hiding is done at the route level #}
 						{% if scores_visible() and user.place %}
-							{{ user.place }} <small>place</small>
+							{{ user.place }} <small>Colocação</small>
 						{% endif %}
 					</h2>
 					<h2 id="user-score" class="text-center">
 						{% if score %}
 							{{ user.score }}
-							<small>points</small>
+							<small>Pontos</small>
 						{% endif %}
 					</h2>
 				</div>
