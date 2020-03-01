@@ -30,7 +30,7 @@
 						<a class="nav-link" data-toggle="pill" href="#administration">Administração</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="pill" href="#style">Style</a>
+						<a class="nav-link" data-toggle="pill" href="#style">Estilo</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="pill" href="#datetime">Data &amp; Hora</a>
@@ -66,9 +66,9 @@
 							<label>
 								CTF User Mode
 								<small class="form-text text-muted">
-									User Mode for the CTF. <br>
-									Dictates whether users join teams to play (Team Mode) or
-									play as themselves (User Mode)
+									Modo de usuário do CTF. <br>
+									Dita se os usuários devem entrar em um time para jogar (Modo time) ou
+									se devem jogar sozinhos (Modo individual)
 								</small>
 							</label>
 							<select class="form-control custom-select" id="user_mode" name="user_mode">
@@ -88,7 +88,7 @@
 							<label>
 								Nome de Usuário para Administrador<br>
 								<small class="form-text text-muted">
-									Seu nomme de usuário para a conta de administrador
+									Seu nome de usuário para a conta de administrador
 								</small>
 							</label>
 							<input class="form-control" type="text" name="name" required/>
@@ -115,7 +115,7 @@
 						<div class="form-check">
 							<label class="form-check-label">
 								<input class="form-check-input" type="checkbox" value="" id="newsletter-checkbox" checked>
-								Subscribe email address to the CTFd LLC Newsletter for news and updates
+								Inscreva seu email no CTFd LLC Newsletter para novidades e atualizações.
 							</label>
 						</div>
 
@@ -143,7 +143,7 @@
 							<label>
 								Cor do Tema
 								<small class="form-text text-muted">
-									Color used by theme to control aesthetics. Requires theme support.
+									Cor usada pelo time para controlar a estética. Requer suporte a temas.
 								</small>
 							</label>
 							<br>
@@ -153,7 +153,7 @@
 									<input type="color" id="config-color-picker" class="pr-1" style="width: 100px; height: 30px;" value="">
 								</div>
 								<div class="btn-group">
-									<button type="button" id="config-color-reset">Reset</button>
+									<button type="button" id="config-color-reset">Resetar</button>
 								</div>
 							</div>
 						</div>
@@ -166,22 +166,22 @@
 					<div class="tab-pane fade" id="datetime" role="tabpanel">
 						<div class="form-group">
 							<label>
-								Start Time<br>
+								Ínicio do CTF<br>
 								<small class="form-text text-muted">
-									Time when your CTF is scheduled to start. Optional.
+									Quando o CTF irá começar. Opcional.
 								</small>
 							</label>
 							<div class="row">
 								<div class="col-md-4">
-									<label>Date</label>
+									<label>Data</label>
 									<input class="form-control" id="start-date" type="date" placeholder="yyyy-mm-dd" data-preview="#start"/>
 								</div>
 								<div class="col-md-4">
-									<label>Time</label>
+									<label>Horário</label>
 									<input class="form-control" id="start-time" type="time" placeholder="hh:mm" data-preview="#start"/>
 								</div>
 								<div class="col-md-4">
-									<label>UTC Preview</label>
+									<label>Previsão(UTC)</label>
 									<input class="form-control" type="text" id="start-preview" name="start" readonly/>
 								</div>
 							</div>
@@ -189,22 +189,22 @@
 
 						<div class="form-group">
 							<label>
-								End Time<br>
+								Fim do CTF<br>
 								<small class="form-text text-muted">
-									Time when your CTF is scheduled to end. Optional.
+									Quando o CTF finalizará. Opcional.
 								</small>
 							</label>
 							<div class="row">
 								<div class="col-md-4">
-									<label>Date</label>
+									<label>Data</label>
 									<input class="form-control" id="end-date" type="date" placeholder="yyyy-mm-dd" data-preview="#end"/>
 								</div>
 								<div class="col-md-4">
-									<label>Time</label>
+									<label>Horário</label>
 									<input class="form-control" id="end-time" type="time" placeholder="hh:mm" data-preview="#end"/>
 								</div>
 								<div class="col-md-4">
-									<label>UTC Preview</label>
+									<label>Previsão(UTC)</label>
 									<input class="form-control" type="text" id="end-preview" name="end" readonly />
 								</div>
 							</div>
@@ -212,13 +212,13 @@
 
 						<div class="float-right">
 							<button type="button" class="btn btn-primary btn-outlined tab-next" data-href="#integrations">
-								Next
+								Próximo
 							</button>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="integrations" role="tabpanel">
 						<div class="form-group">
-							<h4>MajorLeagueCyber Integration</h4>
+							<h4>MajorLeagueCyber Integração</h4>
 							<p>
 							MajorLeagueCyber (MLC) is a cyber security event tracker written and maintained by the developers of CTFd.
 							Set up MLC integration to:
