@@ -12,33 +12,33 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 offset-md-3 text-center">
-				<p>Welcome to {{ get_ctf_name() }}!</p>
+				<p>Bem vindo ao {{ get_ctf_name() }}!</p>
 				<p>
-					In order to participate you must either join or create a team.
+					Para participar você deve entrar ou criar um time.
 				</p>
 			</div>
 		</div>
 		{% if integrations.mlc() %}
 		<div class="row">
 			<div class="col-md-6 offset-md-3 text-center">
-				<a class="btn btn-primary w-100" href="{{ url_for('auth.oauth_login') }}">Play with Official Team</a>
+				<a class="btn btn-primary w-100" href="{{ url_for('auth.oauth_login') }}">Jogue com um Time Oficial</a>
 			</div>
 		</div>
 		<div class="row pt-3">
 			<div class="col-md-3 offset-md-3 text-center">
-				<a class="btn btn-light w-100" href="{{ url_for('teams.join') }}">Join Unofficial Team</a>
+				<a class="btn btn-light w-100" href="{{ url_for('teams.join') }}">Entrar em um time</a>
 			</div>
 			<div class="col-md-3 text-center">
-				<a class="btn btn-light w-100" href="{{ url_for('teams.new') }}">Create Unofficial Team</a>
+				<a class="btn btn-light w-100" href="{{ url_for('teams.new') }}">Criar um time</a>
 			</div>
 		</div>
 		{% else %}
 		<div class="row pt-3">
 			<div class="col-md-3 offset-md-3 text-center">
-				<a class="btn btn-primary w-100" href="{{ url_for('teams.join') }}">Join Team</a>
+				<a class="btn btn-primary w-100" href="{{ url_for('teams.join') }}">Entrar no time</a>
 			</div>
 			<div class="col-md-3 text-center">
-				<a class="btn btn-primary w-100" href="{{ url_for('teams.new') }}">Create Team</a>
+				<a class="btn btn-primary w-100" href="{{ url_for('teams.new') }}">Criar time</a>
 			</div>
 		</div>
 		{% endif %}

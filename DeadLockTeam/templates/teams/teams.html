@@ -15,10 +15,10 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<td><b>Team</b></td>
+						<td><b>Time</b></td>
 						<td><b>Website</b></td>
-						<td class="d-none d-md-table-cell d-lg-table-cell"><b>Affiliation</b></td>
-						<td class="d-none d-md-table-cell d-lg-table-cell"><b>Country</b></td>
+						<td class="d-none d-md-table-cell d-lg-table-cell"><b>Afiliação</b></td>
+						<td class="d-none d-md-table-cell d-lg-table-cell"><b>País</b></td>
 					</tr>
 				</thead>
 				<tbody>
@@ -73,7 +73,7 @@
 	{% if pages > 1 %}
 	<div class="row">
 		<div class="col-md-12">
-			<div class="text-center">Page
+			<div class="text-center">Página
 				<br>
 				{% if curr_page != 1 %}
 					<a href="{{ url_for('teams.listing', page=curr_page-1) }}">

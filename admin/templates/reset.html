@@ -15,14 +15,14 @@
 				<form method="POST" id="reset-ctf-form">
 					<div class="alert alert-danger" role="alert">
 						<p>
-							Resetting your CTF will delete all user and team data. Think carefully before resetting because
-							no automated backups are made and all non-challenge data is lost.
+							Resetar seu CTF irá deletar todos os dados de usuários e times. Pense carinhosamente porque
+							nenhum backup automatico é feito e todos os dados que não são de desafios serão perdidos.
 						</p>
 
 						<span>
 							<strong>
-								Create backups of all data you need by <a href="{{ url_for('admin.config', _anchor='backup') }}">creating a CTFd Export</a>
-								or by copying the database and CTFd source code folder.
+								Crie um backup de todos os seus dados <a href="{{ url_for('admin.config', _anchor='backup') }}">criando um CTFd Export</a>
+								ou copiando o banco e código fonte do CTFd.
 							</strong>
 						</span>
 					</div>
@@ -30,7 +30,7 @@
 					<input id="nonce" type="hidden" name="nonce" value="{{ nonce }}">
 
 					<button class="btn btn-warning btn-lg btn-block">
-						Reset CTF
+						Resetar CTF
 					</button>
 				</form>
 			</div>

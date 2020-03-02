@@ -35,7 +35,7 @@
 					  </select>
 					</div>
 					<div class="form-group col-md-8">
-						<label for="team-name-search" class="sr-only">Parametro</label>
+						<label for="team-name-search" class="sr-only">Parâmetro</label>
 						<input type="text" class="form-control w-100" id="team-name-search" name="q" placeholder="Procurar usuário correspondente" {% if q %}value="{{q}}"{% endif %}>
 					</div>
 					<div class="form-group col-md-2">
@@ -57,7 +57,7 @@
 						</td>
 						<td class=""><b>Website</b>
 						</td>
-						<td class=""><b>Páis</b>
+						<td class=""><b>País</b>
 						</td>
 						<td class="text-center"><b>Admin</b>
 						</td>
@@ -109,7 +109,7 @@
 						</td>
 						<td class="team-admin d-md-table-cell d-lg-table-cell text-center" value="{{ user.type }}">
 							{% if user.type == 'admin' %}
-								<span class="badge badge-primary">admin</span>
+								<span class="badge badge-primary">Admin</span>
 							{% endif %}
 						</td>
 						<td class="team-verified d-md-table-cell d-lg-table-cell text-center" value="{{ user.verified }}">
@@ -132,7 +132,7 @@
 				</tbody>
 			</table>
 			{% if pages > 1 %}
-			<div class="text-center">Pagina
+			<div class="text-center">Página
 				<br>
 				{% if curr_page != 1 %}<a href="{{ url_for('admin.users_listing', page=curr_page - 1) }}">&lt;&lt;&lt;</a>{% endif %}
 				{% for page in range(1, pages + 1) %}

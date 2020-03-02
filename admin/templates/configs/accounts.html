@@ -3,9 +3,9 @@
 
 		<div class="form-group">
 			<label>
-				Account Email Whitelist
+				Whitelist de emails
 				<small class="form-text text-muted">
-					Comma-seperated email domains which users can register under.
+					Domínios de email que os usuários podem usar para registrar.
 				</small>
 			</label>
 			<input class="form-control" id='domain-whitelist' name='domain_whitelist' type='text'
@@ -18,22 +18,22 @@
 
 		<div class="form-group">
 			<label>
-				Verify Emails<br>
+				Verificar emails<br>
 				<small class="form-text text-muted">
-					Control whether users must confirm their email addresses before playing
+					Controlar se os usuários devem verificar o email antes de jogar.
 				</small>
 			</label>
 			<select class="form-control custom-select" name="verify_emails">
-				<option value="true" {% if verify_emails == True %}selected{% endif %}>Enabled</option>
-				<option value="false" {% if verify_emails == False or verify_emails == None %}selected{% endif %}>Disabled</option>
+				<option value="true" {% if verify_emails == True %}selected{% endif %}>Habilitado</option>
+				<option value="false" {% if verify_emails == False or verify_emails == None %}selected{% endif %}>Desabilitado</option>
 			</select>
 		</div>
 
 		<div class="form-group">
 			<label>
-				Team Size<br>
+				Tamanho do time<br>
 				<small class="form-text text-muted">
-					Amount of users per team
+					Quantidade de usuários por membros do time
 				</small>
 			</label>
 			<input class="form-control" id="team_size" name="team_size" type="number" min="0" {% if team_size %}value="{{ team_size }}"{% endif %}>
@@ -41,14 +41,14 @@
 
 		<div class="form-group">
 			<label>
-				Name Changes<br>
+				Mudanças de nome<br>
 				<small class="form-text text-muted">
-					Control whether users can change their names
+					Controla se os usuários podem mudar seus nomes
 				</small>
 			</label>
 			<select class="form-control custom-select" name="name_changes">
-				<option value="true" {% if name_changes == True or name_changes == None %}selected{% endif %}>Enabled</option>
-				<option value="false" {% if name_changes == False %}selected{% endif %}>Disabled</option>
+				<option value="true" {% if name_changes == True or name_changes == None %}selected{% endif %}>Habilitado</option>
+				<option value="false" {% if name_changes == False %}selected{% endif %}>Desabilitado</option>
 			</select>
 		</div>
 

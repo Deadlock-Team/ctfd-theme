@@ -8,7 +8,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h2 class="modal-action text-center w-100">Edit Team</h2>
+				<h2 class="modal-action text-center w-100">Editar time</h2>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -24,7 +24,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h2 class="modal-action text-center w-100">Choose Captain</h2>
+				<h2 class="modal-action text-center w-100">Escolher capitão</h2>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -40,14 +40,14 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h2 class="modal-action text-center w-100">Award Team Member</h2>
+				<h2 class="modal-action text-center w-100">Premiar membro de time</h2>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body clearfix">
 				<div class="form-group">
-					<label for="award-member-input">Member</label>
+					<label for="award-member-input">Membro</label>
 					<select class="form-control custom-select" id="award-member-input">
 						<option value=""> -- </option>
 						{% for member in members %}
@@ -66,19 +66,19 @@
 		<h1 id="team-id" class="text-center">{{ team.name }}</h1>
 		<div class="mb-2">
 			{% if team.verified %}
-				<span class="badge badge-success">verified</span>
+				<span class="badge badge-success">Verificado</span>
 			{% endif %}
 			{% if team.hidden %}
-				<span class="badge badge-danger">hidden</span>
+				<span class="badge badge-danger">Escondido</span>
 			{% endif %}
 			{% if team.banned %}
-				<span class="badge badge-danger">banned</span>
+				<span class="badge badge-danger">Banido</span>
 			{% endif %}
 		</div>
 
 		{% if team.oauth_id %}
 			<a href="https://majorleaguecyber.org/t/{{ team.name }}">
-				<h3><span class="badge badge-primary">Official</span></h3>
+				<h3><span class="badge badge-primary">Oficial</span></h3>
 			</a>
 		{% endif %}
 
@@ -96,7 +96,7 @@
 			</h3>
 		{% endif %}
 
-		<h2 class="text-center">{{ members | length }} members</h2>
+		<h2 class="text-center">{{ members | length }} membros</h2>
 		<h3 id="team-place" class="text-center">
 			{% if place %}
 				{{ place }}
@@ -157,11 +157,11 @@
 	<div class="row pt-5">
 		<div class="col-md-12">
 			<table class="table table-striped">
-				<h3 class="text-center">Team Members</h3>
+				<h3 class="text-center">Membros do time</h3>
 				<thead>
 				<tr>
 					<td class="text-center"></td>
-					<td class="text-center"><b>User Name</b></td>
+					<td class="text-center"><b>Usuário</b></td>
 					<td class="text-center"><b>E-Mail</b></td>
 					<td class="text-center"></td>
 				</tr>
@@ -171,7 +171,7 @@
 					<tr>
 						<td class="text-center">
 							{% if team.captain_id == member.id %}
-								<span class="badge badge-primary">Captain</span>
+								<span class="badge badge-primary">Capitão</span>
 							{% endif %}
 						</td>
 						<td class="text-left">
@@ -200,10 +200,10 @@
 
 	<nav class="nav nav-tabs nav-fill pt-5" id="myTab" role="tablist">
 		<a class="nav-item nav-link active" id="nav-solves-tab" data-toggle="tab" href="#nav-solves" role="tab"
-		   aria-controls="nav-solves" aria-selected="true">Solves</a>
+		   aria-controls="nav-solves" aria-selected="true">Resoluções</a>
 
 		<a class="nav-item nav-link" id="nav-wrong-tab" data-toggle="tab" href="#nav-wrong" role="tab"
-		   aria-controls="nav-wrong" aria-selected="false">Fails</a>
+		   aria-controls="nav-wrong" aria-selected="false">Falhas</a>
 
 		<a class="nav-item nav-link" id="nav-awards-tab" data-toggle="tab" href="#nav-awards" role="tab"
 		   aria-controls="nav-awards" aria-selected="false">Prêmios</a>
@@ -214,16 +214,16 @@
 			<div class="row">
 				<div class="col-md-12">
 					<table class="table table-striped">
-					<h3 class="text-center py-3 d-block">Solves</h3>
+					<h3 class="text-center py-3 d-block">Resoluções</h3>
 					<thead>
 					<tr>
-						<td class="text-center"><b>Challenge</b></td>
-						<td class="text-center"><b>User</b></td>
-						<td class="text-center"><b>Submitted</b></td>
-						<td class="text-center"><b>Category</b></td>
-						<td class="text-center"><b>Value</b></td>
-						<td class="text-center"><b>Time</b></td>
-						<td class="text-center"><b>Delete</b></td>
+						<td class="text-center"><b>Desafio</b></td>
+						<td class="text-center"><b>Usuário</b></td>
+						<td class="text-center"><b>Submissão</b></td>
+						<td class="text-center"><b>Categoria</b></td>
+						<td class="text-center"><b>Valor</b></td>
+						<td class="text-center"><b>Data</b></td>
+						<td class="text-center"><b>Deletar</b></td>
 					</tr>
 					</thead>
 					<tbody>
@@ -265,14 +265,14 @@
 			<div class="row">
 				<div class="col-md-12">
 					<table class="table table-striped">
-					<h3 class="text-center py-3 d-block">Fails</h3>
+					<h3 class="text-center py-3 d-block">Falhas</h3>
 					<thead>
 					<tr>
-						<td class="text-center"><b>Challenge</b></td>
-						<td class="text-center"><b>User</b></td>
-						<td class="text-center"><b>Submitted</b></td>
-						<td class="text-center"><b>Time</b></td>
-						<td class="text-center"><b>Delete</b></td>
+						<td class="text-center"><b>Desafio</b></td>
+						<td class="text-center"><b>Usuário</b></td>
+						<td class="text-center"><b>Submissão</b></td>
+						<td class="text-center"><b>Data</b></td>
+						<td class="text-center"><b>Deletar</b></td>
 					</tr>
 					</thead>
 					<tbody>
