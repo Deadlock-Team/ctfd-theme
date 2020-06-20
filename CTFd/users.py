@@ -36,9 +36,9 @@ def listing():
 @authed_only
 def private():
     user = get_current_user()
-
     solves = user.get_solves()
     awards = user.get_awards()
+    actuallevel = user.get_level()
 
     place = user.place
     score = user.score

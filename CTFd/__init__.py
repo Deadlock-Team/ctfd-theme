@@ -30,7 +30,7 @@ if sys.version_info[0] < 3:
     reload(sys)  # noqa: F821
     sys.setdefaultencoding("utf-8")
 
-__version__ = "2.3.1"
+__version__ = "1.0.2"
 
 
 class CTFdRequest(Request):
@@ -140,6 +140,7 @@ def create_app(config="CTFd.config.Config"):
             Tags,
             Files,
             Tracking,
+            Levels,
         )
 
         url = create_database()

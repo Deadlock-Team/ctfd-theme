@@ -43,6 +43,16 @@ class Notifications(db.Model):
         super(Notifications, self).__init__(**kwargs)
 
 
+class Levels(db.Model):
+    __tablename__ = "levels"
+    id = db.Column(db.Integer, primary_key=True)
+    level = db.Column(db.Integer, unique=True)
+    desc = db.Column(db.Text)
+    exp = db.Column(db.Integer)
+
+    def __init__(self, *args, **kwargs):
+        super(Levels, self).__init__(**kwargs)
+
 class Pages(db.Model):
     __tablename__ = "pages"
     id = db.Column(db.Integer, primary_key=True)
@@ -74,6 +84,7 @@ class Challenges(db.Model):
     type = db.Column(db.String(80))
     state = db.Column(db.String(80), nullable=False, default="visible")
     requirements = db.Column(db.JSON)
+    avaliacao = db.Column(db.Integer)
 
     files = db.relationship("ChallengeFiles", backref="challenge")
     tags = db.relationship("Tags", backref="challenge")
@@ -87,6 +98,14 @@ class Challenges(db.Model):
 
     def __repr__(self):
         return "<Challenge %r>" % self.name
+    
+    @property
+    def level_up(self, user_id):
+        user = Users.query.filter_by(user_id=user_id)
+        user.xp = user.xp + self.value
+        level_up = Levels.query.filter_by(level=user.level+1)
+        if user.xp >= level_up.exp:
+            user.level = level_up.level
 
 
 class Hints(db.Model):
@@ -243,6 +262,10 @@ class Users(db.Model):
     banned = db.Column(db.Boolean, default=False)
     verified = db.Column(db.Boolean, default=False)
 
+    #Level
+    level = db.Column(db.Integer, db.ForeignKey("levels.level"))
+    xp = db.Column(db.Integer)
+
     # Relationship for Teams
     team_id = db.Column(db.Integer, db.ForeignKey("teams.id"))
 
@@ -289,6 +312,14 @@ class Users(db.Model):
             return self.get_place(admin=False)
         else:
             return None
+
+    @property
+    def actuallevel(self):
+        return self.get_level(admin=False)
+
+    def get_level(self, admin=False):
+        actuallevel = Levels.query.filter_by(id=self.id)
+        return actuallevel.all()
 
     def get_solves(self, admin=False):
         solves = Solves.query.filter_by(user_id=self.id)

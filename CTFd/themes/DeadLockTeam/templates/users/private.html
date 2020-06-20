@@ -18,6 +18,15 @@
 				</h2>
 			{% endif %}
 
+			{% if user.level %}
+			<h2 id="user-level" user-level="{{ user.level }}">
+					<span class="badge badge-secondary">
+						Level: {{ user.level }} - {{user.actuallevel}}
+					</span>
+				</a>
+			</h2>
+			{% endif %}
+
 			{% if user.oauth_id %}
 				<a href="https://majorleaguecyber.org/u/{{ user.name }}">
 					<h3><span class="badge badge-primary">Oficial</span></h3>

@@ -38,7 +38,7 @@ from CTFd.utils.plugins import (
 )
 from CTFd.utils.security.auth import login_user, logout_user, lookup_user_token
 from CTFd.utils.security.csrf import generate_nonce
-from CTFd.utils.user import authed, get_current_team, get_current_user, get_ip
+from CTFd.utils.user import authed, get_current_team, get_current_user, get_ip, get_level
 
 
 def init_template_filters(app):
@@ -182,6 +182,7 @@ def init_request_processors(app):
             if authed():
                 user = get_current_user()
                 team = get_current_team()
+                level = get_level()
 
                 if request.path.startswith("/themes") is False:
                     if user and user.banned:

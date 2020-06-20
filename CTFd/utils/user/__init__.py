@@ -15,14 +15,19 @@ def get_current_user():
     else:
         return None
 
-
 def get_current_team():
     if authed():
         user = get_current_user()
         return user.team
     else:
         return None
-
+        
+def get_level():
+    if authed():
+        user = get_current_user()
+        return user.level 
+    else:
+        return None
 
 def authed():
     return bool(session.get("id", False))

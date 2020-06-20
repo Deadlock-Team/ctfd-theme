@@ -14,6 +14,7 @@ from CTFd.models import (
     Pages,
     Teams,
     Users,
+    Levels,
     UserTokens,
     db,
 )

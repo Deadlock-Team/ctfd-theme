@@ -17,6 +17,7 @@ from CTFd.models import (
     ChallengeFiles,
     Fails,
     Solves,
+    Levels,
 )
 
 parser = argparse.ArgumentParser()
@@ -1289,6 +1290,8 @@ if __name__ == "__main__":
         used_oauth_ids = []
         count = 0
         while count < USER_AMOUNT:
+            level = 1
+            xp = 0
             name = gen_name()
             if name not in used:
                 used.append(name)
@@ -1447,5 +1450,15 @@ if __name__ == "__main__":
                     db.session.add(wrong)
                     db.session.commit()
 
+        # Adicionando level
+        print("GENERATING LEVELs")
+        level = Levels (
+            id = 1,
+            level = 1,
+            desc = "teste",
+            exp = 0,
+        ) 
+        db.session.add(level) 
         db.session.commit()
-        db.session.close()
+
+    db.session.close()
