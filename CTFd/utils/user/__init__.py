@@ -15,6 +15,7 @@ def get_current_user():
     else:
         return None
 
+#Tem um erro aqui, não deveria estar sendo tratado com esse except, corrigir depois
 def get_current_team():
     if authed():
         user = get_current_user()
@@ -25,7 +26,7 @@ def get_current_team():
 def get_level():
     if authed():
         user = get_current_user()
-        return user.level 
+        return user.level
     else:
         return None
 

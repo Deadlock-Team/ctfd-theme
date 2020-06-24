@@ -9,6 +9,7 @@ from CTFd.models import (
     Solves,
     Tags,
     db,
+    Levels,
 )
 from CTFd.plugins import register_plugin_assets_directory
 from CTFd.plugins.flags import get_flag_class
@@ -161,6 +162,11 @@ class CTFdStandardChallenge(BaseChallenge):
             ip=get_ip(req=request),
             provided=submission,
         )
+        user.xp = user.xp + challenge.value
+        nextLevel = Levels.query.filter_by(level=user.level + 1)
+        nextLevel = nextLevel.first()
+        if user.xp >= nextLevel.exp:
+            user.level = user.level + 1
         db.session.add(solve)
         db.session.commit()
         db.session.close()

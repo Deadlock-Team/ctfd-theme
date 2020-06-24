@@ -226,7 +226,7 @@ def register():
             )
         else:
             with app.app_context():
-                user = Users(name=name, email=email_address, password=password)
+                user = Users(name=name, email=email_address, password=password, level=1, xp=0)
                 db.session.add(user)
                 db.session.commit()
                 db.session.flush()

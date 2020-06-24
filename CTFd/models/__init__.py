@@ -45,13 +45,23 @@ class Notifications(db.Model):
 
 class Levels(db.Model):
     __tablename__ = "levels"
-    id = db.Column(db.Integer, primary_key=True)
-    level = db.Column(db.Integer, unique=True)
-    desc = db.Column(db.Text)
+    level = db.Column(db.Integer, primary_key=True)
+    desc = db.Column(db.String(40))
     exp = db.Column(db.Integer)
 
     def __init__(self, *args, **kwargs):
         super(Levels, self).__init__(**kwargs)
+
+class Rates(db.Model):
+    __tablename__ = "rates"
+    id = db.Column(db.Integer, primary_key=True)
+    chall_id = db.Column(db.Integer, db.ForeignKey("challenges.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    rate = db.Column(db.Integer)
+    date = db.Column(db.DateTime)
+
+    def __init__(self, *args, **kwargs):
+        super(Rates, self).__init__(**kwargs)    
 
 class Pages(db.Model):
     __tablename__ = "pages"
@@ -84,7 +94,6 @@ class Challenges(db.Model):
     type = db.Column(db.String(80))
     state = db.Column(db.String(80), nullable=False, default="visible")
     requirements = db.Column(db.JSON)
-    avaliacao = db.Column(db.Integer)
 
     files = db.relationship("ChallengeFiles", backref="challenge")
     tags = db.relationship("Tags", backref="challenge")
@@ -318,8 +327,8 @@ class Users(db.Model):
         return self.get_level(admin=False)
 
     def get_level(self, admin=False):
-        actuallevel = Levels.query.filter_by(id=self.id)
-        return actuallevel.all()
+        actuallevel = Levels.query.filter_by(level=self.level)
+        return actuallevel.first()
 
     def get_solves(self, admin=False):
         solves = Solves.query.filter_by(user_id=self.id)

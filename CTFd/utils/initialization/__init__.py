@@ -182,7 +182,7 @@ def init_request_processors(app):
             if authed():
                 user = get_current_user()
                 team = get_current_team()
-                level = get_level()
+                #level = get_level()
 
                 if request.path.startswith("/themes") is False:
                     if user and user.banned:

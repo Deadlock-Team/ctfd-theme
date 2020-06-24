@@ -18,6 +18,7 @@ from CTFd.models import (
     Fails,
     Solves,
     Levels,
+    Rates,
 )
 
 parser = argparse.ArgumentParser()
@@ -1290,14 +1291,12 @@ if __name__ == "__main__":
         used_oauth_ids = []
         count = 0
         while count < USER_AMOUNT:
-            level = 1
-            xp = 0
             name = gen_name()
             if name not in used:
                 used.append(name)
                 try:
                     user = Users(
-                        name=name, email=name + gen_email(), password="password"
+                        name=name, email=name + gen_email(), password="password", level=1, xp=0
                     )
                     user.verified = True
                     if random_chance():
@@ -1453,8 +1452,6 @@ if __name__ == "__main__":
         # Adicionando level
         print("GENERATING LEVELs")
         level = Levels (
-            id = 1,
-            level = 1,
             desc = "teste",
             exp = 0,
         ) 

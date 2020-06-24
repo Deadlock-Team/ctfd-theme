@@ -21,7 +21,7 @@
 			{% if user.level %}
 			<h2 id="user-level" user-level="{{ user.level }}">
 					<span class="badge badge-secondary">
-						Level: {{ user.level }} - {{user.actuallevel}}
+						Level: {{ user.level }} - {{user.actuallevel.desc}}
 					</span>
 				</a>
 			</h2>
