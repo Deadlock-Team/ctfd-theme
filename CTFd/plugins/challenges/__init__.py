@@ -10,6 +10,7 @@ from CTFd.models import (
     Tags,
     db,
     Levels,
+    Rates,
 )
 from CTFd.plugins import register_plugin_assets_directory
 from CTFd.plugins.flags import get_flag_class
@@ -191,6 +192,20 @@ class CTFdStandardChallenge(BaseChallenge):
             provided=submission,
         )
         db.session.add(wrong)
+        db.session.commit()
+        db.session.close()
+
+    @staticmethod
+    def rate(user, challenge, request):
+        data = request.form or request.get_json()
+        rate = data["rate"].strip()
+        rates = Rates(
+            chall_id = challenges.id,
+            user_id = user.id,
+            rate = rate,
+            date = datetime.datetime.utcnow,
+        )
+        db.session.add(rates)
         db.session.commit()
         db.session.close()
 

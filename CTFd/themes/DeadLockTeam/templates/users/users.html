@@ -28,11 +28,11 @@
 								{% if scores_visible() %}
 									<a href="{{ url_for('users.public', user_id=user.id) }}">
 										{{ user.name | truncate(50) }}
-										{{ user.level | truncate(50) }}
+										- Level: {{ user.level}}
 									</a>
 								{% else %}
 									<span>{{ user.name | truncate(50) }}</span>
-									<span>{{ user.level | truncate(50) }}</span>
+									<span>{{ user.level}}</span>
 								{% endif %}
 								{% if user.oauth_id %}
 									<a href="https://majorleaguecyber.org/u/{{ user.name }}">

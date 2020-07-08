@@ -326,6 +326,18 @@ class Users(db.Model):
     def actuallevel(self):
         return self.get_level(admin=False)
 
+    @property
+    def alreadyrated(self, chall_id):
+        return self.get_isRated(chall_id, admin=False)
+    
+    def get_isRated(self, chall_id, admin=False):
+        rate = Rates.query.filter_by(user_id=self.id, chall_id=chall_id).First()
+        if rate == None:
+            return False
+        else:
+            return True
+
+
     def get_level(self, admin=False):
         actuallevel = Levels.query.filter_by(level=self.level)
         return actuallevel.first()

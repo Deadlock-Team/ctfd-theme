@@ -33,6 +33,12 @@ def get_level():
 def authed():
     return bool(session.get("id", False))
 
+def already_rated(chall_id):
+    if authed():
+        user = get_current_user()
+        return user.alreadyrated(chall_id)
+    else:
+        return None
 
 def is_admin():
     if authed():

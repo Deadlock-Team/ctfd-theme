@@ -3606,7 +3606,42 @@ let API = (function() {
 
     return deferred.promise;
   };
+  /**
+   *
+   * @method
+   * @name API#post_challenge_rate
+   * @param {object} parameters - method options and parameters
+   */
+  API.prototype.post_challenge_rate = function(parameters) {
+    if (parameters === undefined) {
+      parameters = {};
+    }
+    let deferred = Q.defer();
+    let domain = this.domain,
+      path = "/challenges/rate";
+    let body = {},
+      queryParameters = {},
+      headers = {},
+      form = {};
 
+    headers["Accept"] = ["application/json"];
+    headers["Content-Type"] = ["application/json"];
+
+    queryParameters = mergeQueryParams(parameters, queryParameters);
+
+    this.request(
+      "POST",
+      domain + path,
+      parameters,
+      body,
+      headers,
+      queryParameters,
+      form,
+      deferred
+    );
+
+    return deferred.promise;
+  };
   return API;
 })();
 

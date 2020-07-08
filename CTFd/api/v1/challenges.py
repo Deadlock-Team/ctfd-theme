@@ -584,6 +584,86 @@ class ChallengeHints(Resource):
 
         return {"success": True, "data": response.data}
 
+@challenges_namespace.route("/rate")
+class ChallengeRate(Resource):
+    @check_challenge_visibility
+    @during_ctf_time_only
+    @require_verified_emails
+    def post(self):
+        if authed() is False:
+            return {"success": True, "data": {"status": "authentication_required"}}, 403
+
+        if request.content_type != "application/json":
+            request_data = request.form
+        else:
+            request_data = request.get_json()
+
+        challenge_id = request_data.get("challenge_id")
+
+        if current_user.is_admin():
+            preview = request.args.get("preview", False)
+            if preview:
+                challenge = Challenges.query.filter_by(id=challenge_id).first_or_404()
+                chal_class = get_chal_class(challenge.type)
+                status, message = chal_class.attempt(challenge, request)
+
+                return {
+                    "success": True,
+                    "data": {
+                        "status": "correct" if status else "incorrect",
+                        "message": message,
+                    },
+                }
+
+        if ctf_paused():
+            return (
+                {
+                    "success": True,
+                    "data": {
+                        "status": "paused",
+                        "message": "{} is paused".format(config.ctf_name()),
+                    },
+                },
+                403,
+            )
+        
+        if current_user.already_rated(challenge_id):
+            return (
+                {
+                    "success": False,
+                    "data": {
+                        "status": "rated",
+                        "message": "user already rated",
+                    }
+                },
+                403,
+            )
+
+        user = get_current_user()
+        team = get_current_team()
+
+        solves = Solves.query.filter_by(
+            account_id=user.account_id, challenge_id=challenge_id
+        ).first()
+
+        if not solves:
+            return (
+                {
+                    "success": False,
+                    "data": {
+                        "status": "unsolved",
+                        "message": "user not solved the challenge",
+                    }
+                },
+                403,
+            )
+        else:
+            chal_class = get_chal_class(challenge.type)
+            chal_class.rate(
+                user=user, challenge=challenge, request=request
+            )
+
+
 
 @challenges_namespace.route("/<challenge_id>/flags")
 @challenges_namespace.param("id", "A Challenge ID")

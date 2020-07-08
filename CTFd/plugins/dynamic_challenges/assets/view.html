@@ -6,13 +6,13 @@
 			</button>
 			<ul class="nav nav-tabs">
 				<li class="nav-item">
-					<a class="nav-link active" href="#challenge">Challenge</a>
+					<a class="nav-link active" href="#challenge">Desafio</a>
 				</li>
 				{% if solves == None %}
 				{% else %}
 					<li class="nav-item">
 						<a class="nav-link challenge-solves" href="#solves">
-							{{ solves }} {% if solves > 1 %}Solves{% else %}Solves{% endif %}
+							{{ solves }} {% if solves > 1 %}Resoluções{% else %}Resoluções{% endif %}
 						</a>
 					</li>
 				{% endif %}
@@ -80,7 +80,7 @@
 							</div>
 							<div class="col-md-3 form-group key-submit">
 								<button type="submit" id="submit-key" tabindex="0"
-										class="btn btn-md btn-outline-secondary float-right">Submit
+										class="btn btn-md btn-outline-secondary float-right">Submeter
 								</button>
 							</div>
 						</div>
