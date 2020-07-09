@@ -17,10 +17,13 @@ def get_current_user():
 
 #Tem um erro aqui, não deveria estar sendo tratado com esse except, corrigir depois
 def get_current_team():
-    if authed():
-        user = get_current_user()
-        return user.team
-    else:
+    try:
+        if authed():
+            user = get_current_user()
+            return user.team
+        else:
+            return None
+    except:
         return None
         
 def get_level():

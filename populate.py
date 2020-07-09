@@ -1456,6 +1456,11 @@ if __name__ == "__main__":
             exp = 0,
         ) 
         db.session.add(level) 
+        level = Levels (
+            desc = "teste2",
+            exp= 100,
+        )
+        db.session.add(level)
         db.session.commit()
 
     db.session.close()

@@ -235,6 +235,7 @@ def setup():
     return redirect(url_for("views.static_html"))
 
 
+
 @views.route("/setup/integrations", methods=["GET", "POST"])
 def integrations():
     if is_admin() or is_setup() is False:
